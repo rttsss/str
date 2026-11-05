@@ -20,6 +20,92 @@
   --tile-gap: 7px;
 }
 
+:root[data-theme="sunset"] {
+  --page-bg: #fbf0ea;
+  --surface: #fffaf7;
+  --surface-soft: #fff4ed;
+  --ink: #45291f;
+  --muted: #8c7064;
+  --line: #ecd9d0;
+  --accent: #c35d42;
+  --accent-deep: #5b3025;
+  --accent-wash: #fae4da;
+  --cell-empty: #f5e6df;
+  --block-1: #ef7b56;
+  --block-2: #e8bb49;
+  --block-3: #a8444b;
+  --shadow: 0 20px 50px rgb(75 40 29 / 9%);
+}
+
+:root[data-theme="lagoon"] {
+  --page-bg: #eaf4f6;
+  --surface: #fcffff;
+  --surface-soft: #f2f9fa;
+  --ink: #18313a;
+  --muted: #647e84;
+  --line: #d6e5e7;
+  --accent: #287d91;
+  --accent-deep: #183d49;
+  --accent-wash: #dff0f2;
+  --cell-empty: #e4eff0;
+  --block-1: #37a7aa;
+  --block-2: #e4bd50;
+  --block-3: #367c9d;
+  --shadow: 0 20px 50px rgb(26 65 75 / 9%);
+}
+
+:root[data-theme="iris"] {
+  --page-bg: #f6edf3;
+  --surface: #fffafd;
+  --surface-soft: #fbf3f8;
+  --ink: #3a2a35;
+  --muted: #84727e;
+  --line: #eadbe5;
+  --accent: #a54577;
+  --accent-deep: #4d293e;
+  --accent-wash: #f4e1ed;
+  --cell-empty: #f0e5ed;
+  --block-1: #d16492;
+  --block-2: #d6a542;
+  --block-3: #587d6b;
+  --shadow: 0 20px 50px rgb(67 40 58 / 9%);
+}
+
+:root[data-theme="citrus"] {
+  --page-bg: #f2f5e8;
+  --surface: #fcfdf7;
+  --surface-soft: #f8faef;
+  --ink: #343d25;
+  --muted: #778064;
+  --line: #e0e7d0;
+  --accent: #728b2e;
+  --accent-deep: #3d4b21;
+  --accent-wash: #e8efd6;
+  --cell-empty: #e8eddc;
+  --block-1: #8faf43;
+  --block-2: #e4ba42;
+  --block-3: #4d8c79;
+  --shadow: 0 20px 50px rgb(55 69 35 / 9%);
+}
+
+:root[data-theme="midnight"] {
+  color-scheme: dark;
+  --page-bg: #17202c;
+  --surface: #222d3b;
+  --surface-soft: #283544;
+  --ink: #f1f4f4;
+  --muted: #9baab5;
+  --line: #3a4858;
+  --accent: #6cb7d0;
+  --accent-deep: #31586a;
+  --accent-wash: #2e414e;
+  --cell-empty: #303c4a;
+  --block-1: #57bfa5;
+  --block-2: #e6b85e;
+  --block-3: #8b80d0;
+  --shadow: 0 20px 50px rgb(4 10 18 / 25%);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -296,12 +382,13 @@ h1 span {
 }
 
 .board-cell.is-preview {
+  background: var(--cell-color, var(--block-1));
   transform: scale(.92);
   box-shadow: inset 0 0 0 2px rgb(255 255 255 / 58%);
 }
 
 .board-cell.is-preview-invalid {
-  background: #d87970;
+  background: #d87970 !important;
   transform: scale(.92);
   box-shadow: inset 0 -3px 0 rgb(0 0 0 / 10%);
 }
@@ -384,6 +471,7 @@ h1 span {
 .piece-cell {
   border-radius: 4px;
   background: var(--piece-color, var(--block-1));
+  transition: background-color 420ms ease;
 }
 
 .piece-hint {

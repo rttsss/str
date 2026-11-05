@@ -1,4 +1,12 @@
 const SIZE = 8;
+const THEMES = [
+  { key: "meadow", name: "Луг", page: "#eef5ef" },
+  { key: "sunset", name: "Закат", page: "#fbf0ea" },
+  { key: "lagoon", name: "Лагуна", page: "#eaf4f6" },
+  { key: "iris", name: "Ирис", page: "#f6edf3" },
+  { key: "citrus", name: "Цитрус", page: "#f2f5e8" },
+  { key: "midnight", name: "Ночь", page: "#17202c" },
+];
 const SHAPES = [
   { name: "Квадрат", cells: [[0, 0], [0, 1], [1, 0], [1, 1]] },
   { name: "Тройка", cells: [[0, 0], [1, 0], [1, 1]] },
@@ -22,6 +30,10 @@ const scoreElement = document.querySelector("#score");
 const bestScoreElement = document.querySelector("#best-score");
 const linesElement = document.querySelector("#lines-cleared");
 const pieceCountElement = document.querySelector("#piece-count");
+const themeNameElement = document.querySelector("#theme-name");
+const themeNoteTitleElement = document.querySelector("#theme-note-title");
+const themeNoteCountElement = document.querySelector("#theme-note-count");
+const footerThemeElement = document.querySelector("#footer-theme");
 const gameOverDialog = document.querySelector("#game-over");
 const cellElements = [];
 
@@ -33,6 +45,7 @@ let score = 0;
 let bestScore = readBestScore();
 let clearedLines = 0;
 let pieceId = 0;
+let themeIndex = 0;
 
 function readBestScore() {
   try {
@@ -139,6 +152,16 @@ function renderStats() {
   linesElement.textContent = String(clearedLines);
 }
 
+function applyTheme() {
+  const theme = THEMES[themeIndex];
+  document.documentElement.dataset.theme = theme.key;
+  document.querySelector('meta[name="theme-color"]').content = theme.page;
+  themeNameElement.textContent = theme.name;
+  themeNoteTitleElement.textContent = theme.name;
+  themeNoteCountElement.textContent = `ПАЛИТРА ${String(themeIndex + 1).padStart(2, "0")} / ${String(THEMES.length).padStart(2, "0")}`;
+  footerThemeElement.textContent = `${String(themeIndex + 1).padStart(2, "0")} · ${theme.name.toLocaleUpperCase("ru-RU")}`;
+}
+
 function selectPiece(id) {
   selectedPieceId = selectedPieceId === id ? null : id;
   hoverAnchor = null;
@@ -198,9 +221,11 @@ function handleBoardClick(event) {
   if (cleared.lineCount > 0) {
     clearedLines += cleared.lineCount;
     score += (cleared.cells.size * 2) + (cleared.lineCount * 8);
+    themeIndex = (themeIndex + 1) % THEMES.length;
+    applyTheme();
     messageElement.textContent = cleared.lineCount === 1
-      ? "Линия очищена"
-      : `Линий очищено: ${cleared.lineCount}`;
+      ? `Линия очищена · тема «${THEMES[themeIndex].name}»`
+      : `Линий очищено: ${cleared.lineCount} · тема «${THEMES[themeIndex].name}»`;
   } else {
     messageElement.textContent = "Хороший ход";
   }
@@ -270,6 +295,8 @@ function startGame() {
   hoverAnchor = null;
   score = 0;
   clearedLines = 0;
+  themeIndex = 0;
+  applyTheme();
   messageElement.textContent = "Твой ход";
   hintElement.textContent = "Выбери фигуру";
   renderPieces();
