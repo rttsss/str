@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ru" data-theme="meadow">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#eef5ef">
+    <meta name="description" content="Block Blast — спокойная головоломка с блоками, линиями и меняющимися темами.">
+    <title>Block Blast</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="game.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="./" aria-label="Block Blast — главная">
+          <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <span class="brand-name">BLOCK<span>BLAST</span></span>
+        </a>
+        <div class="theme-status" aria-live="polite">
+          <span class="theme-swatch" aria-hidden="true"></span>
+          <span><span class="theme-caption">ТЕМА</span><strong id="theme-name">Луг</strong></span>
+        </div>
+        <button class="new-game-button" id="new-game" type="button">Новая игра</button>
+      </header>
+
+      <main class="game-layout">
+        <section class="game-stage" aria-labelledby="game-title">
+          <div class="game-heading">
+            <div>
+              <p class="eyebrow">BLOCK PUZZLE · КЛАССИКА</p>
+              <h1 id="game-title">Block <span>Blast</span></h1>
+            </div>
+            <p class="game-message" id="game-message" aria-live="polite">Твой ход</p>
+          </div>
+
+          <div class="score-strip" aria-label="Статистика игры">
+            <div class="score-item score-primary">
+              <span>Очки</span>
+              <strong id="score">0</strong>
+            </div>
+            <div class="score-item">
+              <span>Рекорд</span>
+              <strong id="best-score">0</strong>
+            </div>
+            <div class="score-item">
+              <span>Линии</span>
+              <strong id="lines-cleared">0</strong>
+            </div>
+          </div>
+
+          <div class="board-frame">
+            <div class="board" id="board" role="grid" aria-label="Игровое поле 8 на 8"></div>
+          </div>
+        </section>
+
+        <aside class="game-sidebar" aria-label="Игровые фигуры">
+          <div class="sidebar-heading">
+            <div>
+              <p class="eyebrow">СЛЕДУЮЩИЕ</p>
+              <h2>Фигуры</h2>
+            </div>
+            <span class="piece-count" id="piece-count">3</span>
+          </div>
+
+          <div class="piece-tray" id="piece-tray" aria-live="polite"></div>
+          <p class="piece-hint" id="piece-hint">Выбери фигуру</p>
+          <div class="sidebar-rule" aria-hidden="true"></div>
+          <div class="theme-note">
+            <span class="theme-note-swatch" aria-hidden="true"></span>
+            <div>
+              <strong id="theme-note-title">Луг</strong>
+              <span id="theme-note-copy">Свежая зелень</span>
+            </div>
+          </div>
+        </aside>
+      </main>
+
+      <footer class="page-footer">
+        <span>BLOCK BLAST</span>
+        <span id="footer-theme">01 · ЛУГ</span>
+      </footer>
+    </div>
+
+    <dialog class="game-over-dialog" id="game-over" aria-labelledby="game-over-title">
+      <div class="dialog-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+      <p class="eyebrow">РАУНД ЗАВЕРШЁН</p>
+      <h2 id="game-over-title">Хорошая игра</h2>
+      <p class="final-score-line">Очки <strong id="final-score">0</strong></p>
+      <button class="new-game-button dialog-button" id="play-again" type="button">Играть снова</button>
+    </dialog>
+  </body>
+</html>
