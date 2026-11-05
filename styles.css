@@ -14,8 +14,12 @@
   --accent-wash: #e7f0e5;
   --cell-empty: #edf2e9;
   --block-1: #a7cdb0;
-  --block-2: #ddce98;
-  --block-3: #91bcb4;
+  --block-2: #97bd9d;
+  --block-3: #7fa888;
+  --cell-glow: 0 0 0 transparent;
+  --piece-glow: 0 0 0 transparent;
+  --accent-glow: 0 0 0 transparent;
+  --accent-text-glow: none;
   --shadow: 0 20px 50px rgb(45 68 51 / 8%);
   --tile-gap: 7px;
 }
@@ -31,9 +35,9 @@
   --accent-deep: #79584d;
   --accent-wash: #f8e9e2;
   --cell-empty: #f5eae4;
-  --block-1: #e8b8a5;
-  --block-2: #e7d19a;
-  --block-3: #c69cab;
+  --block-1: #efc4b2;
+  --block-2: #dfa992;
+  --block-3: #c98e79;
   --shadow: 0 20px 50px rgb(75 54 44 / 8%);
 }
 
@@ -48,9 +52,9 @@
   --accent-deep: #4d6e72;
   --accent-wash: #e5f1f1;
   --cell-empty: #eaf2f1;
-  --block-1: #a6cfca;
-  --block-2: #e7d39d;
-  --block-3: #9cbad0;
+  --block-1: #b1d4d3;
+  --block-2: #8ebec1;
+  --block-3: #6f9fa5;
   --shadow: 0 20px 50px rgb(42 70 76 / 8%);
 }
 
@@ -65,9 +69,9 @@
   --accent-deep: #73596b;
   --accent-wash: #f2e8ef;
   --cell-empty: #f2eaf0;
-  --block-1: #d9b5ce;
-  --block-2: #e3c99d;
-  --block-3: #a9c7b9;
+  --block-1: #dfc4d8;
+  --block-2: #c9a6c0;
+  --block-3: #ad86a4;
   --shadow: 0 20px 50px rgb(67 51 64 / 8%);
 }
 
@@ -82,9 +86,9 @@
   --accent-deep: #65714e;
   --accent-wash: #edf0e3;
   --cell-empty: #edf0e5;
-  --block-1: #bdd0a0;
-  --block-2: #e7d79d;
-  --block-3: #a9c8bd;
+  --block-1: #c9d6ad;
+  --block-2: #acbd87;
+  --block-3: #8f9f69;
   --shadow: 0 20px 50px rgb(63 67 44 / 8%);
 }
 
@@ -96,13 +100,13 @@
   --ink: #edf0f1;
   --muted: #a2abb2;
   --line: #3a434e;
-  --accent: #83b2bf;
-  --accent-deep: #385966;
-  --accent-wash: #2d4149;
+  --accent: #75b7e8;
+  --accent-deep: #274a65;
+  --accent-wash: #253f54;
   --cell-empty: #303944;
-  --block-1: #71b6a4;
-  --block-2: #d5b875;
-  --block-3: #8494bf;
+  --block-1: #91c9f1;
+  --block-2: #5aa3dc;
+  --block-3: #347cb5;
   --shadow: 0 20px 50px rgb(4 10 18 / 25%);
 }
 
@@ -117,9 +121,9 @@
   --accent-deep: #79565f;
   --accent-wash: #f7e8eb;
   --cell-empty: #f5e9eb;
-  --block-1: #e1b3bd;
-  --block-2: #e6d0a0;
-  --block-3: #aac6bd;
+  --block-1: #ecc6cc;
+  --block-2: #dca0ac;
+  --block-3: #c77e8e;
   --shadow: 0 20px 50px rgb(75 53 59 / 8%);
 }
 
@@ -132,12 +136,16 @@
   --muted: #a3ada0;
   --line: #353c35;
   --accent: #d5ff3f;
-  --accent-deep: #37451c;
+  --accent-deep: #344a18;
   --accent-wash: #2c381c;
-  --cell-empty: #282e28;
+  --cell-empty: #242a24;
   --block-1: #d5ff3f;
   --block-2: #ff5797;
   --block-3: #45e6d1;
+  --cell-glow: 0 0 11px color-mix(in srgb, var(--cell-color) 76%, transparent), 0 0 24px color-mix(in srgb, var(--cell-color) 46%, transparent);
+  --piece-glow: 0 0 10px color-mix(in srgb, var(--piece-color) 76%, transparent), 0 0 18px color-mix(in srgb, var(--piece-color) 44%, transparent);
+  --accent-glow: 0 0 9px color-mix(in srgb, var(--accent) 72%, transparent), 0 0 21px color-mix(in srgb, var(--accent) 40%, transparent);
+  --accent-text-glow: 0 0 9px color-mix(in srgb, var(--accent) 78%, transparent);
   --shadow: 0 20px 50px rgb(0 0 0 / 38%);
 }
 
@@ -149,13 +157,13 @@
   --ink: #eaf1ed;
   --muted: #a1b1ac;
   --line: #3b4a4c;
-  --accent: #69c3b5;
-  --accent-deep: #2d5a55;
-  --accent-wash: #294440;
+  --accent: #58e0d0;
+  --accent-deep: #1c625c;
+  --accent-wash: #234541;
   --cell-empty: #2d3a3d;
-  --block-1: #67c0b1;
-  --block-2: #e0c46d;
-  --block-3: #e58772;
+  --block-1: #9af0e4;
+  --block-2: #58d8c9;
+  --block-3: #20aaa0;
   --shadow: 0 20px 50px rgb(0 0 0 / 30%);
 }
 
@@ -167,13 +175,13 @@
   --ink: #f3ece6;
   --muted: #b9a69d;
   --line: #4a3933;
-  --accent: #e99576;
-  --accent-deep: #684137;
-  --accent-wash: #49342e;
+  --accent: #ff986b;
+  --accent-deep: #713c2c;
+  --accent-wash: #4d3027;
   --cell-empty: #3a2d29;
-  --block-1: #e99576;
-  --block-2: #d5b66e;
-  --block-3: #8fae9a;
+  --block-1: #ffc19b;
+  --block-2: #f28b59;
+  --block-3: #d7653f;
   --shadow: 0 20px 50px rgb(0 0 0 / 32%);
 }
 
@@ -185,13 +193,13 @@
   --ink: #f0edf4;
   --muted: #b0a8b9;
   --line: #454052;
-  --accent: #b59bdb;
-  --accent-deep: #504568;
+  --accent: #c89aff;
+  --accent-deep: #593b79;
   --accent-wash: #403751;
   --cell-empty: #373145;
-  --block-1: #b59bdb;
-  --block-2: #e8b27d;
-  --block-3: #74c6ad;
+  --block-1: #dfc3ff;
+  --block-2: #b987f0;
+  --block-3: #8b55d1;
   --shadow: 0 20px 50px rgb(0 0 0 / 32%);
 }
 
@@ -203,13 +211,13 @@
   --ink: #edf1e9;
   --muted: #a7b2a6;
   --line: #3c4c40;
-  --accent: #a1cf82;
-  --accent-deep: #405d3e;
-  --accent-wash: #344633;
+  --accent: #9fea80;
+  --accent-deep: #3c673e;
+  --accent-wash: #344b34;
   --cell-empty: #303d34;
-  --block-1: #a1cf82;
-  --block-2: #e3c36f;
-  --block-3: #73b9b0;
+  --block-1: #b9f49a;
+  --block-2: #83db78;
+  --block-3: #4bb966;
   --shadow: 0 20px 50px rgb(0 0 0 / 30%);
 }
 
@@ -278,6 +286,8 @@ a:focus-visible {
 .brand-mark i {
   border-radius: 4px;
   background: var(--block-1);
+  box-shadow: var(--accent-glow);
+  transition: background-color 420ms ease, box-shadow 420ms ease;
 }
 
 .brand-mark i:nth-child(2) {
@@ -302,9 +312,11 @@ a:focus-visible {
 
 .brand-name span {
   color: var(--accent);
+  text-shadow: var(--accent-text-glow);
+  transition: color 420ms ease, text-shadow 420ms ease;
 }
 
-.appearance-switch {
+.segmented-switch {
   display: flex;
   align-items: center;
   gap: 2px;
@@ -315,7 +327,7 @@ a:focus-visible {
   transition: background-color 420ms ease, border-color 420ms ease;
 }
 
-.appearance-switch button {
+.segmented-switch button {
   min-height: 31px;
   padding: 0 10px;
   border: 0;
@@ -329,10 +341,19 @@ a:focus-visible {
   transition: background-color 220ms ease, color 220ms ease, box-shadow 220ms ease;
 }
 
-.appearance-switch button[aria-pressed="true"] {
+.segmented-switch button[aria-pressed="true"] {
   background: var(--surface);
   color: var(--ink);
-  box-shadow: 0 1px 4px rgb(20 30 25 / 10%);
+  box-shadow: 0 1px 4px rgb(20 30 25 / 10%), var(--accent-glow);
+}
+
+.mode-icon {
+  width: 34px;
+  display: grid;
+  place-items: center;
+  padding: 0 !important;
+  font-size: 19px !important;
+  line-height: 1;
 }
 
 .theme-status {
@@ -349,7 +370,7 @@ a:focus-visible {
   height: 12px;
   border-radius: 50%;
   background: var(--accent);
-  box-shadow: 0 0 0 4px var(--accent-wash);
+  box-shadow: 0 0 0 4px var(--accent-wash), var(--accent-glow);
   transition: background-color 420ms ease, box-shadow 420ms ease;
 }
 
@@ -378,10 +399,11 @@ a:focus-visible {
   border-radius: 7px;
   background: var(--accent-deep);
   color: #fff;
+  box-shadow: var(--accent-glow);
   font-size: 13px;
   font-weight: 700;
   cursor: pointer;
-  transition: transform 160ms ease, background-color 300ms ease;
+  transition: transform 160ms ease, background-color 300ms ease, box-shadow 420ms ease;
 }
 
 .new-game-button:hover {
@@ -436,7 +458,8 @@ h1 {
 
 h1 span {
   color: var(--accent);
-  transition: color 420ms ease;
+  text-shadow: var(--accent-text-glow);
+  transition: color 420ms ease, text-shadow 420ms ease;
 }
 
 .game-message {
@@ -522,7 +545,7 @@ h1 span {
 .board-cell.is-preview {
   background: var(--cell-color, var(--block-1));
   transform: scale(.92);
-  box-shadow: inset 0 0 0 2px rgb(255 255 255 / 58%);
+  box-shadow: inset 0 0 0 2px rgb(255 255 255 / 58%), var(--cell-glow);
 }
 
 .board-cell.is-preview-invalid {
@@ -533,7 +556,7 @@ h1 span {
 
 .board-cell.is-filled {
   background: var(--cell-color, var(--block-1));
-  box-shadow: inset 0 -3px 0 rgb(0 0 0 / 10%);
+  box-shadow: inset 0 -3px 0 rgb(0 0 0 / 10%), var(--cell-glow);
 }
 
 .game-sidebar {
@@ -609,7 +632,8 @@ h1 span {
 .piece-cell {
   border-radius: 4px;
   background: var(--piece-color, var(--block-1));
-  transition: background-color 420ms ease;
+  box-shadow: var(--piece-glow);
+  transition: background-color 420ms ease, box-shadow 420ms ease;
 }
 
 .piece-hint {
@@ -748,10 +772,10 @@ h1 span {
   .topbar {
     min-height: 0;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-columns: auto auto minmax(0, 1fr);
     grid-template-areas:
-      "brand action"
-      "appearance theme";
+      "brand brand action"
+      "language appearance theme";
     column-gap: 10px;
     row-gap: 12px;
     padding: 14px 0;
@@ -759,6 +783,11 @@ h1 span {
 
   .brand {
     grid-area: brand;
+  }
+
+  .language-switch {
+    grid-area: language;
+    width: max-content;
   }
 
   .appearance-switch {
@@ -838,10 +867,16 @@ h1 span {
     gap: 9px;
   }
 
-  .appearance-switch button {
+  .segmented-switch button {
     min-height: 29px;
     padding: 0 8px;
     font-size: 10px;
+  }
+
+  .mode-icon {
+    width: 31px;
+    padding: 0 !important;
+    font-size: 17px !important;
   }
 
   .brand {

@@ -1,21 +1,117 @@
 const SIZE = 8;
 const THEMES = {
   light: [
-    { key: "meadow", name: "Луг", page: "#f3f7f0" },
-    { key: "sunset", name: "Персик", page: "#fcf3ef" },
-    { key: "lagoon", name: "Лагуна", page: "#eff7f7" },
-    { key: "iris", name: "Ирис", page: "#f8f1f6" },
-    { key: "citrus", name: "Фисташка", page: "#f5f7ed" },
-    { key: "rose", name: "Роза", page: "#fcf0f2" },
+    { key: "meadow", name: { ru: "Луг", en: "Meadow" }, page: "#f3f7f0" },
+    { key: "sunset", name: { ru: "Персик", en: "Peach" }, page: "#fcf3ef" },
+    { key: "lagoon", name: { ru: "Лагуна", en: "Lagoon" }, page: "#eff7f7" },
+    { key: "iris", name: { ru: "Ирис", en: "Iris" }, page: "#f8f1f6" },
+    { key: "citrus", name: { ru: "Фисташка", en: "Pistachio" }, page: "#f5f7ed" },
+    { key: "rose", name: { ru: "Роза", en: "Rose" }, page: "#fcf0f2" },
   ],
   dark: [
-    { key: "midnight", name: "Полночь", page: "#171d27" },
-    { key: "neon", name: "Неон", page: "#101311" },
-    { key: "deepsea", name: "Глубина", page: "#162126" },
-    { key: "ember", name: "Уголь", page: "#241b19" },
-    { key: "twilight", name: "Сумерки", page: "#211d2b" },
-    { key: "garden-night", name: "Ночной сад", page: "#18231e" },
+    { key: "midnight", name: { ru: "Полночь", en: "Midnight" }, page: "#171d27" },
+    { key: "neon", name: { ru: "Неон", en: "Neon" }, page: "#101311" },
+    { key: "deepsea", name: { ru: "Глубина", en: "Deep Sea" }, page: "#162126" },
+    { key: "ember", name: { ru: "Уголь", en: "Ember" }, page: "#241b19" },
+    { key: "twilight", name: { ru: "Сумерки", en: "Twilight" }, page: "#211d2b" },
+    { key: "garden-night", name: { ru: "Ночной сад", en: "Night Garden" }, page: "#18231e" },
   ],
+};
+const COPY = {
+  ru: {
+    description: "Block Blast — спокойная головоломка с блоками, линиями и меняющимися темами.",
+    brandHome: "Block Blast — главная",
+    language: "Язык",
+    appearance: "Режим оформления",
+    lightMode: "Светлая тема",
+    darkMode: "Тёмная тема",
+    theme: "ТЕМА",
+    newGame: "Новая игра",
+    gameKicker: "BLOCK PUZZLE · КЛАССИКА",
+    gameTurn: "Твой ход",
+    choosePosition: "Выбери позицию",
+    selectPiece: "Выбери фигуру",
+    pieceSelected: "Фигура выбрана",
+    chooseFirst: "Сначала выбери фигуру",
+    invalidPosition: "Эта позиция занята или выходит за край",
+    goodMove: "Хороший ход",
+    noMoves: "Больше нет доступных ходов",
+    lineCleared: (name) => `Линия очищена · тема «${name}»`,
+    linesCleared: (count, name) => `Линий очищено: ${count} · тема «${name}»`,
+    score: "Очки",
+    best: "Рекорд",
+    lines: "Линии",
+    stats: "Статистика игры",
+    board: "Игровое поле 8 на 8",
+    sidebar: "Игровые фигуры",
+    piecesKicker: "СЛЕДУЮЩИЕ",
+    piecesTitle: "Фигуры",
+    chooseShape: (name) => `Выбрать фигуру «${name}»`,
+    freeCell: "Свободная клетка",
+    occupiedCell: "Занятая клетка",
+    row: "ряд",
+    column: "столбец",
+    palette: (index, total) => `ПАЛИТРА ${index} / ${total}`,
+    roundOver: "РАУНД ЗАВЕРШЁН",
+    gameOverTitle: "Хорошая игра",
+    playAgain: "Играть снова",
+    finalScore: "Очки",
+    themeFooter: (index, name) => `${index} · ${name}`,
+  },
+  en: {
+    description: "Block Blast is a relaxing puzzle game with blocks, line clears, and changing color themes.",
+    brandHome: "Block Blast home",
+    language: "Language",
+    appearance: "Color theme mode",
+    lightMode: "Light theme",
+    darkMode: "Dark theme",
+    theme: "THEME",
+    newGame: "New game",
+    gameKicker: "BLOCK PUZZLE · CLASSIC",
+    gameTurn: "Your turn",
+    choosePosition: "Choose a position",
+    selectPiece: "Choose a piece",
+    pieceSelected: "Piece selected",
+    chooseFirst: "Choose a piece first",
+    invalidPosition: "That position is occupied or out of bounds",
+    goodMove: "Nice move",
+    noMoves: "No more moves available",
+    lineCleared: (name) => `Line cleared · theme “${name}”`,
+    linesCleared: (count, name) => `Lines cleared: ${count} · theme “${name}”`,
+    score: "Score",
+    best: "Best",
+    lines: "Lines",
+    stats: "Game statistics",
+    board: "8 by 8 game board",
+    sidebar: "Game pieces",
+    piecesKicker: "UP NEXT",
+    piecesTitle: "Pieces",
+    chooseShape: (name) => `Select ${name} piece`,
+    freeCell: "Empty cell",
+    occupiedCell: "Occupied cell",
+    row: "row",
+    column: "column",
+    palette: (index, total) => `PALETTE ${index} / ${total}`,
+    roundOver: "ROUND OVER",
+    gameOverTitle: "Good game",
+    playAgain: "Play again",
+    finalScore: "Score",
+    themeFooter: (index, name) => `${index} · ${name}`,
+  },
+};
+const SHAPE_NAMES_EN = {
+  "Квадрат": "Square",
+  "Тройка": "Three-block",
+  "Угол": "Corner",
+  "Т-образная": "T-shape",
+  "Зигзаг": "Zigzag",
+  "Линия 2": "Two-block line",
+  "Линия 3": "Three-block line",
+  "Линия 4": "Four-block line",
+  "Линия 5": "Five-block line",
+  "Длинный угол": "Long corner",
+  "Крест": "Cross",
+  "Плитка": "Single block",
 };
 const SHAPES = [
   { name: "Квадрат", cells: [[0, 0], [0, 1], [1, 0], [1, 1]] },
@@ -57,6 +153,10 @@ let clearedLines = 0;
 let pieceId = 0;
 let themeIndex = 0;
 let colorMode = readColorMode();
+let language = readLanguage();
+let messageKey = "gameTurn";
+let messageParams = [];
+let hintKey = "selectPiece";
 
 function readBestScore() {
   try {
@@ -75,6 +175,90 @@ function readColorMode() {
   }
 }
 
+function readLanguage() {
+  try {
+    return localStorage.getItem("block-blast-language") === "en" ? "en" : "ru";
+  } catch {
+    return "ru";
+  }
+}
+
+function localizedShapeName(name) {
+  return language === "en" ? SHAPE_NAMES_EN[name] || name : name;
+}
+
+function setMessage(key, ...params) {
+  messageKey = key;
+  messageParams = params;
+  renderMessage();
+}
+
+function renderMessage() {
+  const value = COPY[language][messageKey];
+  const params = [...messageParams];
+  if (messageKey === "lineCleared" || messageKey === "linesCleared") {
+    const themeKey = params.at(-1);
+    const theme = Object.values(THEMES).flat().find((candidate) => candidate.key === themeKey);
+    params[params.length - 1] = theme ? theme.name[language] : themeKey;
+  }
+  messageElement.textContent = typeof value === "function" ? value(...params) : value;
+}
+
+function setHint(key) {
+  hintKey = key;
+  hintElement.textContent = COPY[language][key];
+}
+
+function applyLanguage() {
+  const copy = COPY[language];
+  const setText = (selector, value) => {
+    document.querySelector(selector).textContent = value;
+  };
+
+  document.documentElement.lang = language;
+  document.querySelector('meta[name="description"]').content = copy.description;
+  document.querySelector("#brand-link").setAttribute("aria-label", copy.brandHome);
+  document.querySelector("#language-switch").setAttribute("aria-label", copy.language);
+  document.querySelector("#appearance-switch").setAttribute("aria-label", copy.appearance);
+  document.querySelector("#ru-language").setAttribute("aria-pressed", String(language === "ru"));
+  document.querySelector("#en-language").setAttribute("aria-pressed", String(language === "en"));
+  document.querySelector("#light-mode").setAttribute("aria-label", copy.lightMode);
+  document.querySelector("#light-mode").title = copy.lightMode;
+  document.querySelector("#dark-mode").setAttribute("aria-label", copy.darkMode);
+  document.querySelector("#dark-mode").title = copy.darkMode;
+  setText("#theme-caption", copy.theme);
+  setText("#new-game", copy.newGame);
+  setText("#game-kicker", copy.gameKicker);
+  setText("#score-label", copy.score);
+  setText("#best-label", copy.best);
+  setText("#lines-label", copy.lines);
+  document.querySelector("#score-strip").setAttribute("aria-label", copy.stats);
+  setText("#pieces-kicker", copy.piecesKicker);
+  setText("#pieces-title", copy.piecesTitle);
+  document.querySelector(".game-sidebar").setAttribute("aria-label", copy.sidebar);
+  document.querySelector("#board").setAttribute("aria-label", copy.board);
+  setText("#game-over-kicker", copy.roundOver);
+  setText("#game-over-title", copy.gameOverTitle);
+  setText("#final-score-label", copy.finalScore);
+  setText("#play-again", copy.playAgain);
+  renderMessage();
+  setHint(hintKey);
+}
+
+function setLanguage(nextLanguage) {
+  if (!COPY[nextLanguage] || language === nextLanguage) return;
+  language = nextLanguage;
+  try {
+    localStorage.setItem("block-blast-language", language);
+  } catch {
+    // Language selection still works for this visit when browser storage is unavailable.
+  }
+  applyLanguage();
+  applyTheme();
+  renderPieces();
+  renderBoard();
+}
+
 function saveBestScore() {
   try {
     localStorage.setItem("block-blast-best", String(bestScore));
@@ -91,7 +275,7 @@ function createBoard() {
       cell.className = "board-cell";
       cell.dataset.row = String(row);
       cell.dataset.column = String(column);
-      cell.setAttribute("aria-label", `Ряд ${row + 1}, столбец ${column + 1}`);
+      cell.setAttribute("aria-label", `${COPY[language].row} ${row + 1}, ${COPY[language].column} ${column + 1}`);
       boardElement.append(cell);
       cellElements.push(cell);
     }
@@ -122,7 +306,7 @@ function renderPieces() {
     button.type = "button";
     button.className = "piece-token";
     button.dataset.pieceId = String(piece.id);
-    button.setAttribute("aria-label", `Выбрать фигуру «${piece.name}»`);
+    button.setAttribute("aria-label", COPY[language].chooseShape(localizedShapeName(piece.name)));
     button.setAttribute("aria-pressed", String(selectedPieceId === piece.id));
     button.classList.toggle("is-selected", selectedPieceId === piece.id);
 
@@ -158,7 +342,8 @@ function renderBoard() {
     cell.classList.toggle("is-filled", tone !== null);
     cell.classList.toggle("is-preview", Boolean(isPreview && preview.valid));
     cell.classList.toggle("is-preview-invalid", Boolean(isPreview && !preview.valid));
-    cell.setAttribute("aria-label", `${tone === null ? "Свободная" : "Занятая"} клетка, ряд ${row + 1}, столбец ${column + 1}`);
+    const copy = COPY[language];
+    cell.setAttribute("aria-label", `${tone === null ? copy.freeCell : copy.occupiedCell}, ${copy.row} ${row + 1}, ${copy.column} ${column + 1}`);
     cell.style.setProperty("--cell-color", tone === null
       ? (isPreview && preview.valid ? `var(--block-${selectedPiece.tone + 1})` : "")
       : `var(--block-${tone + 1})`);
@@ -177,10 +362,13 @@ function applyTheme() {
   document.documentElement.dataset.theme = theme.key;
   document.documentElement.dataset.mode = colorMode;
   document.querySelector('meta[name="theme-color"]').content = theme.page;
-  themeNameElement.textContent = theme.name;
-  themeNoteTitleElement.textContent = theme.name;
-  themeNoteCountElement.textContent = `ПАЛИТРА ${String(themeIndex + 1).padStart(2, "0")} / ${String(availableThemes.length).padStart(2, "0")}`;
-  footerThemeElement.textContent = `${String(themeIndex + 1).padStart(2, "0")} · ${theme.name.toLocaleUpperCase("ru-RU")}`;
+  const themeName = theme.name[language];
+  const paddedIndex = String(themeIndex + 1).padStart(2, "0");
+  const paddedCount = String(availableThemes.length).padStart(2, "0");
+  themeNameElement.textContent = themeName;
+  themeNoteTitleElement.textContent = themeName;
+  themeNoteCountElement.textContent = COPY[language].palette(paddedIndex, paddedCount);
+  footerThemeElement.textContent = COPY[language].themeFooter(paddedIndex, themeName.toLocaleUpperCase(language === "ru" ? "ru-RU" : "en-US"));
   document.querySelector("#light-mode").setAttribute("aria-pressed", String(colorMode === "light"));
   document.querySelector("#dark-mode").setAttribute("aria-pressed", String(colorMode === "dark"));
 }
@@ -201,8 +389,8 @@ function selectPiece(id) {
   selectedPieceId = selectedPieceId === id ? null : id;
   hoverAnchor = null;
   const isSelected = selectedPieceId !== null;
-  messageElement.textContent = isSelected ? "Выбери позицию" : "Твой ход";
-  hintElement.textContent = isSelected ? "Фигура выбрана" : "Выбери фигуру";
+  setMessage(isSelected ? "choosePosition" : "gameTurn");
+  setHint(isSelected ? "pieceSelected" : "selectPiece");
   renderPieces();
   renderBoard();
   trayElement.querySelector(`[data-piece-id="${selectedPieceId ?? id}"]`)?.focus({ preventScroll: true });
@@ -229,7 +417,7 @@ function handleBoardClick(event) {
 
   const piece = pieces.find((candidate) => candidate.id === selectedPieceId);
   if (!piece) {
-    messageElement.textContent = "Сначала выбери фигуру";
+    setMessage("chooseFirst");
     return;
   }
 
@@ -237,7 +425,7 @@ function handleBoardClick(event) {
   const column = Number(cell.dataset.column);
   const placement = getPlacement(piece, row, column);
   if (!placement.valid) {
-    messageElement.textContent = "Эта позиция занята или выходит за край";
+    setMessage("invalidPosition");
     hoverAnchor = { row, column };
     renderBoard();
     return;
@@ -258,11 +446,13 @@ function handleBoardClick(event) {
     score += (cleared.cells.size * 2) + (cleared.lineCount * 8);
     themeIndex = (themeIndex + 1) % THEMES[colorMode].length;
     applyTheme();
-    messageElement.textContent = cleared.lineCount === 1
-      ? `Линия очищена · тема «${THEMES[colorMode][themeIndex].name}»`
-      : `Линий очищено: ${cleared.lineCount} · тема «${THEMES[colorMode][themeIndex].name}»`;
+    const themeKey = THEMES[colorMode][themeIndex].key;
+    const message = cleared.lineCount === 1
+      ? ["lineCleared", themeKey]
+      : ["linesCleared", cleared.lineCount, themeKey];
+    setMessage(...message);
   } else {
-    messageElement.textContent = "Хороший ход";
+    setMessage("goodMove");
   }
 
   if (score > bestScore) {
@@ -319,7 +509,7 @@ function hasAnyMove() {
 
 function finishGame() {
   document.querySelector("#final-score").textContent = String(score);
-  messageElement.textContent = "Больше нет доступных ходов";
+  setMessage("noMoves");
   gameOverDialog.showModal();
 }
 
@@ -332,8 +522,8 @@ function startGame() {
   clearedLines = 0;
   themeIndex = 0;
   applyTheme();
-  messageElement.textContent = "Твой ход";
-  hintElement.textContent = "Выбери фигуру";
+  setMessage("gameTurn");
+  setHint("selectPiece");
   renderPieces();
   renderBoard();
   renderStats();
@@ -356,6 +546,9 @@ document.querySelector("#new-game").addEventListener("click", startGame);
 document.querySelector("#play-again").addEventListener("click", startGame);
 document.querySelector("#light-mode").addEventListener("click", () => setColorMode("light"));
 document.querySelector("#dark-mode").addEventListener("click", () => setColorMode("dark"));
+document.querySelector("#ru-language").addEventListener("click", () => setLanguage("ru"));
+document.querySelector("#en-language").addEventListener("click", () => setLanguage("en"));
 gameOverDialog.addEventListener("cancel", (event) => event.preventDefault());
 bestScoreElement.textContent = String(bestScore);
+applyLanguage();
 startGame();

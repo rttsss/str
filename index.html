@@ -12,17 +12,21 @@
   <body>
     <div class="app-shell">
       <header class="topbar">
-        <a class="brand" href="./" aria-label="Block Blast — главная">
+        <a class="brand" id="brand-link" href="./" aria-label="Block Blast — главная">
           <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
           <span class="brand-name">BLOCK<span>BLAST</span></span>
         </a>
-        <div class="appearance-switch" role="group" aria-label="Режим оформления">
-          <button id="light-mode" type="button" aria-pressed="true">Светлая</button>
-          <button id="dark-mode" type="button" aria-pressed="false">Тёмная</button>
+        <div class="segmented-switch language-switch" id="language-switch" role="group" aria-label="Язык">
+          <button id="ru-language" type="button" aria-pressed="true">RU</button>
+          <button id="en-language" type="button" aria-pressed="false">EN</button>
+        </div>
+        <div class="segmented-switch appearance-switch" id="appearance-switch" role="group" aria-label="Режим оформления">
+          <button id="light-mode" class="mode-icon" type="button" aria-label="Светлая тема" title="Светлая тема" aria-pressed="true"><span aria-hidden="true">&#9728;</span></button>
+          <button id="dark-mode" class="mode-icon" type="button" aria-label="Тёмная тема" title="Тёмная тема" aria-pressed="false"><span aria-hidden="true">&#9790;</span></button>
         </div>
         <div class="theme-status" aria-live="polite">
           <span class="theme-swatch" aria-hidden="true"></span>
-          <span><span class="theme-caption">ТЕМА</span><strong id="theme-name">Луг</strong></span>
+          <span><span class="theme-caption" id="theme-caption">ТЕМА</span><strong id="theme-name">Луг</strong></span>
         </div>
         <button class="new-game-button" id="new-game" type="button">Новая игра</button>
       </header>
@@ -31,23 +35,23 @@
         <section class="game-stage" aria-labelledby="game-title">
           <div class="game-heading">
             <div>
-              <p class="eyebrow">BLOCK PUZZLE · КЛАССИКА</p>
+              <p class="eyebrow" id="game-kicker">BLOCK PUZZLE · КЛАССИКА</p>
               <h1 id="game-title">Block <span>Blast</span></h1>
             </div>
             <p class="game-message" id="game-message" aria-live="polite">Твой ход</p>
           </div>
 
-          <div class="score-strip" aria-label="Статистика игры">
+          <div class="score-strip" id="score-strip" aria-label="Статистика игры">
             <div class="score-item score-primary">
-              <span>Очки</span>
+              <span id="score-label">Очки</span>
               <strong id="score">0</strong>
             </div>
             <div class="score-item">
-              <span>Рекорд</span>
+              <span id="best-label">Рекорд</span>
               <strong id="best-score">0</strong>
             </div>
             <div class="score-item">
-              <span>Линии</span>
+              <span id="lines-label">Линии</span>
               <strong id="lines-cleared">0</strong>
             </div>
           </div>
@@ -60,8 +64,8 @@
         <aside class="game-sidebar" aria-label="Игровые фигуры">
           <div class="sidebar-heading">
             <div>
-              <p class="eyebrow">СЛЕДУЮЩИЕ</p>
-              <h2>Фигуры</h2>
+              <p class="eyebrow" id="pieces-kicker">СЛЕДУЮЩИЕ</p>
+              <h2 id="pieces-title">Фигуры</h2>
             </div>
             <span class="piece-count" id="piece-count">3</span>
           </div>
@@ -87,9 +91,9 @@
 
     <dialog class="game-over-dialog" id="game-over" aria-labelledby="game-over-title">
       <div class="dialog-mark" aria-hidden="true"><span></span><span></span><span></span></div>
-      <p class="eyebrow">РАУНД ЗАВЕРШЁН</p>
+      <p class="eyebrow" id="game-over-kicker">РАУНД ЗАВЕРШЁН</p>
       <h2 id="game-over-title">Хорошая игра</h2>
-      <p class="final-score-line">Очки <strong id="final-score">0</strong></p>
+      <p class="final-score-line"><span id="final-score-label">Очки</span><strong id="final-score">0</strong></p>
       <button class="new-game-button dialog-button" id="play-again" type="button">Играть снова</button>
     </dialog>
   </body>
