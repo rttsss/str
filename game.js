@@ -1,12 +1,22 @@
 const SIZE = 8;
-const THEMES = [
-  { key: "meadow", name: "Луг", page: "#eef5ef" },
-  { key: "sunset", name: "Закат", page: "#fbf0ea" },
-  { key: "lagoon", name: "Лагуна", page: "#eaf4f6" },
-  { key: "iris", name: "Ирис", page: "#f6edf3" },
-  { key: "citrus", name: "Цитрус", page: "#f2f5e8" },
-  { key: "midnight", name: "Ночь", page: "#17202c" },
-];
+const THEMES = {
+  light: [
+    { key: "meadow", name: "Луг", page: "#f3f7f0" },
+    { key: "sunset", name: "Персик", page: "#fcf3ef" },
+    { key: "lagoon", name: "Лагуна", page: "#eff7f7" },
+    { key: "iris", name: "Ирис", page: "#f8f1f6" },
+    { key: "citrus", name: "Фисташка", page: "#f5f7ed" },
+    { key: "rose", name: "Роза", page: "#fcf0f2" },
+  ],
+  dark: [
+    { key: "midnight", name: "Полночь", page: "#171d27" },
+    { key: "neon", name: "Неон", page: "#101311" },
+    { key: "deepsea", name: "Глубина", page: "#162126" },
+    { key: "ember", name: "Уголь", page: "#241b19" },
+    { key: "twilight", name: "Сумерки", page: "#211d2b" },
+    { key: "garden-night", name: "Ночной сад", page: "#18231e" },
+  ],
+};
 const SHAPES = [
   { name: "Квадрат", cells: [[0, 0], [0, 1], [1, 0], [1, 1]] },
   { name: "Тройка", cells: [[0, 0], [1, 0], [1, 1]] },
@@ -46,6 +56,7 @@ let bestScore = readBestScore();
 let clearedLines = 0;
 let pieceId = 0;
 let themeIndex = 0;
+let colorMode = readColorMode();
 
 function readBestScore() {
   try {
@@ -53,6 +64,14 @@ function readBestScore() {
     return Number.isFinite(value) && value > 0 ? value : 0;
   } catch {
     return 0;
+  }
+}
+
+function readColorMode() {
+  try {
+    return localStorage.getItem("block-blast-mode") === "dark" ? "dark" : "light";
+  } catch {
+    return "light";
   }
 }
 
@@ -153,13 +172,29 @@ function renderStats() {
 }
 
 function applyTheme() {
-  const theme = THEMES[themeIndex];
+  const availableThemes = THEMES[colorMode];
+  const theme = availableThemes[themeIndex];
   document.documentElement.dataset.theme = theme.key;
+  document.documentElement.dataset.mode = colorMode;
   document.querySelector('meta[name="theme-color"]').content = theme.page;
   themeNameElement.textContent = theme.name;
   themeNoteTitleElement.textContent = theme.name;
-  themeNoteCountElement.textContent = `ПАЛИТРА ${String(themeIndex + 1).padStart(2, "0")} / ${String(THEMES.length).padStart(2, "0")}`;
+  themeNoteCountElement.textContent = `ПАЛИТРА ${String(themeIndex + 1).padStart(2, "0")} / ${String(availableThemes.length).padStart(2, "0")}`;
   footerThemeElement.textContent = `${String(themeIndex + 1).padStart(2, "0")} · ${theme.name.toLocaleUpperCase("ru-RU")}`;
+  document.querySelector("#light-mode").setAttribute("aria-pressed", String(colorMode === "light"));
+  document.querySelector("#dark-mode").setAttribute("aria-pressed", String(colorMode === "dark"));
+}
+
+function setColorMode(mode) {
+  if (!THEMES[mode] || colorMode === mode) return;
+  colorMode = mode;
+  themeIndex = 0;
+  try {
+    localStorage.setItem("block-blast-mode", colorMode);
+  } catch {
+    // Theme selection still works for this visit when browser storage is unavailable.
+  }
+  applyTheme();
 }
 
 function selectPiece(id) {
@@ -221,11 +256,11 @@ function handleBoardClick(event) {
   if (cleared.lineCount > 0) {
     clearedLines += cleared.lineCount;
     score += (cleared.cells.size * 2) + (cleared.lineCount * 8);
-    themeIndex = (themeIndex + 1) % THEMES.length;
+    themeIndex = (themeIndex + 1) % THEMES[colorMode].length;
     applyTheme();
     messageElement.textContent = cleared.lineCount === 1
-      ? `Линия очищена · тема «${THEMES[themeIndex].name}»`
-      : `Линий очищено: ${cleared.lineCount} · тема «${THEMES[themeIndex].name}»`;
+      ? `Линия очищена · тема «${THEMES[colorMode][themeIndex].name}»`
+      : `Линий очищено: ${cleared.lineCount} · тема «${THEMES[colorMode][themeIndex].name}»`;
   } else {
     messageElement.textContent = "Хороший ход";
   }
@@ -319,6 +354,8 @@ boardElement.addEventListener("pointerleave", () => {
 });
 document.querySelector("#new-game").addEventListener("click", startGame);
 document.querySelector("#play-again").addEventListener("click", startGame);
+document.querySelector("#light-mode").addEventListener("click", () => setColorMode("light"));
+document.querySelector("#dark-mode").addEventListener("click", () => setColorMode("dark"));
 gameOverDialog.addEventListener("cancel", (event) => event.preventDefault());
 bestScoreElement.textContent = String(bestScore);
 startGame();

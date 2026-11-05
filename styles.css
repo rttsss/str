@@ -3,107 +3,214 @@
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
-  --page-bg: #eef5ef;
-  --surface: #ffffff;
-  --surface-soft: #f7faf7;
-  --ink: #18291f;
-  --muted: #78867d;
-  --line: #dce7de;
-  --accent: #2e936a;
-  --accent-deep: #173d2c;
-  --accent-wash: #e5f3e9;
-  --cell-empty: #edf3ed;
-  --block-1: #35ae7d;
-  --block-2: #a5cc52;
-  --block-3: #257b69;
-  --shadow: 0 20px 50px rgb(24 57 39 / 8%);
+  --page-bg: #f3f7f0;
+  --surface: #fffefa;
+  --surface-soft: #f9fbf6;
+  --ink: #34413a;
+  --muted: #87938c;
+  --line: #e2e9df;
+  --accent: #84a991;
+  --accent-deep: #496956;
+  --accent-wash: #e7f0e5;
+  --cell-empty: #edf2e9;
+  --block-1: #a7cdb0;
+  --block-2: #ddce98;
+  --block-3: #91bcb4;
+  --shadow: 0 20px 50px rgb(45 68 51 / 8%);
   --tile-gap: 7px;
 }
 
 :root[data-theme="sunset"] {
-  --page-bg: #fbf0ea;
-  --surface: #fffaf7;
-  --surface-soft: #fff4ed;
-  --ink: #45291f;
-  --muted: #8c7064;
-  --line: #ecd9d0;
-  --accent: #c35d42;
-  --accent-deep: #5b3025;
-  --accent-wash: #fae4da;
-  --cell-empty: #f5e6df;
-  --block-1: #ef7b56;
-  --block-2: #e8bb49;
-  --block-3: #a8444b;
-  --shadow: 0 20px 50px rgb(75 40 29 / 9%);
+  --page-bg: #fcf3ef;
+  --surface: #fffdfa;
+  --surface-soft: #fff8f4;
+  --ink: #4a3b37;
+  --muted: #978780;
+  --line: #efe2db;
+  --accent: #d6a28e;
+  --accent-deep: #79584d;
+  --accent-wash: #f8e9e2;
+  --cell-empty: #f5eae4;
+  --block-1: #e8b8a5;
+  --block-2: #e7d19a;
+  --block-3: #c69cab;
+  --shadow: 0 20px 50px rgb(75 54 44 / 8%);
 }
 
 :root[data-theme="lagoon"] {
-  --page-bg: #eaf4f6;
-  --surface: #fcffff;
-  --surface-soft: #f2f9fa;
-  --ink: #18313a;
-  --muted: #647e84;
-  --line: #d6e5e7;
-  --accent: #287d91;
-  --accent-deep: #183d49;
-  --accent-wash: #dff0f2;
-  --cell-empty: #e4eff0;
-  --block-1: #37a7aa;
-  --block-2: #e4bd50;
-  --block-3: #367c9d;
-  --shadow: 0 20px 50px rgb(26 65 75 / 9%);
+  --page-bg: #eff7f7;
+  --surface: #fdffff;
+  --surface-soft: #f5fafa;
+  --ink: #344347;
+  --muted: #819093;
+  --line: #deeaeb;
+  --accent: #8bb8bc;
+  --accent-deep: #4d6e72;
+  --accent-wash: #e5f1f1;
+  --cell-empty: #eaf2f1;
+  --block-1: #a6cfca;
+  --block-2: #e7d39d;
+  --block-3: #9cbad0;
+  --shadow: 0 20px 50px rgb(42 70 76 / 8%);
 }
 
 :root[data-theme="iris"] {
-  --page-bg: #f6edf3;
-  --surface: #fffafd;
-  --surface-soft: #fbf3f8;
-  --ink: #3a2a35;
-  --muted: #84727e;
-  --line: #eadbe5;
-  --accent: #a54577;
-  --accent-deep: #4d293e;
-  --accent-wash: #f4e1ed;
-  --cell-empty: #f0e5ed;
-  --block-1: #d16492;
-  --block-2: #d6a542;
-  --block-3: #587d6b;
-  --shadow: 0 20px 50px rgb(67 40 58 / 9%);
+  --page-bg: #f8f1f6;
+  --surface: #fffdfd;
+  --surface-soft: #fcf7fa;
+  --ink: #453b43;
+  --muted: #91858e;
+  --line: #ede3eb;
+  --accent: #c49bb7;
+  --accent-deep: #73596b;
+  --accent-wash: #f2e8ef;
+  --cell-empty: #f2eaf0;
+  --block-1: #d9b5ce;
+  --block-2: #e3c99d;
+  --block-3: #a9c7b9;
+  --shadow: 0 20px 50px rgb(67 51 64 / 8%);
 }
 
 :root[data-theme="citrus"] {
-  --page-bg: #f2f5e8;
-  --surface: #fcfdf7;
-  --surface-soft: #f8faef;
-  --ink: #343d25;
-  --muted: #778064;
-  --line: #e0e7d0;
-  --accent: #728b2e;
-  --accent-deep: #3d4b21;
-  --accent-wash: #e8efd6;
-  --cell-empty: #e8eddc;
-  --block-1: #8faf43;
-  --block-2: #e4ba42;
-  --block-3: #4d8c79;
-  --shadow: 0 20px 50px rgb(55 69 35 / 9%);
+  --page-bg: #f5f7ed;
+  --surface: #fffefa;
+  --surface-soft: #fafbf4;
+  --ink: #414437;
+  --muted: #8a8d7b;
+  --line: #e7e9dc;
+  --accent: #a7b58a;
+  --accent-deep: #65714e;
+  --accent-wash: #edf0e3;
+  --cell-empty: #edf0e5;
+  --block-1: #bdd0a0;
+  --block-2: #e7d79d;
+  --block-3: #a9c8bd;
+  --shadow: 0 20px 50px rgb(63 67 44 / 8%);
 }
 
 :root[data-theme="midnight"] {
   color-scheme: dark;
-  --page-bg: #17202c;
-  --surface: #222d3b;
-  --surface-soft: #283544;
-  --ink: #f1f4f4;
-  --muted: #9baab5;
-  --line: #3a4858;
-  --accent: #6cb7d0;
-  --accent-deep: #31586a;
-  --accent-wash: #2e414e;
-  --cell-empty: #303c4a;
-  --block-1: #57bfa5;
-  --block-2: #e6b85e;
-  --block-3: #8b80d0;
+  --page-bg: #171d27;
+  --surface: #222a35;
+  --surface-soft: #29323d;
+  --ink: #edf0f1;
+  --muted: #a2abb2;
+  --line: #3a434e;
+  --accent: #83b2bf;
+  --accent-deep: #385966;
+  --accent-wash: #2d4149;
+  --cell-empty: #303944;
+  --block-1: #71b6a4;
+  --block-2: #d5b875;
+  --block-3: #8494bf;
   --shadow: 0 20px 50px rgb(4 10 18 / 25%);
+}
+
+:root[data-theme="rose"] {
+  --page-bg: #fcf0f2;
+  --surface: #fffdfd;
+  --surface-soft: #fff7f8;
+  --ink: #483b3f;
+  --muted: #95868a;
+  --line: #f0e1e4;
+  --accent: #d29da8;
+  --accent-deep: #79565f;
+  --accent-wash: #f7e8eb;
+  --cell-empty: #f5e9eb;
+  --block-1: #e1b3bd;
+  --block-2: #e6d0a0;
+  --block-3: #aac6bd;
+  --shadow: 0 20px 50px rgb(75 53 59 / 8%);
+}
+
+:root[data-theme="neon"] {
+  color-scheme: dark;
+  --page-bg: #101311;
+  --surface: #191d1a;
+  --surface-soft: #222722;
+  --ink: #f0f4ec;
+  --muted: #a3ada0;
+  --line: #353c35;
+  --accent: #d5ff3f;
+  --accent-deep: #37451c;
+  --accent-wash: #2c381c;
+  --cell-empty: #282e28;
+  --block-1: #d5ff3f;
+  --block-2: #ff5797;
+  --block-3: #45e6d1;
+  --shadow: 0 20px 50px rgb(0 0 0 / 38%);
+}
+
+:root[data-theme="deepsea"] {
+  color-scheme: dark;
+  --page-bg: #162126;
+  --surface: #202d31;
+  --surface-soft: #29383c;
+  --ink: #eaf1ed;
+  --muted: #a1b1ac;
+  --line: #3b4a4c;
+  --accent: #69c3b5;
+  --accent-deep: #2d5a55;
+  --accent-wash: #294440;
+  --cell-empty: #2d3a3d;
+  --block-1: #67c0b1;
+  --block-2: #e0c46d;
+  --block-3: #e58772;
+  --shadow: 0 20px 50px rgb(0 0 0 / 30%);
+}
+
+:root[data-theme="ember"] {
+  color-scheme: dark;
+  --page-bg: #241b19;
+  --surface: #302421;
+  --surface-soft: #392b27;
+  --ink: #f3ece6;
+  --muted: #b9a69d;
+  --line: #4a3933;
+  --accent: #e99576;
+  --accent-deep: #684137;
+  --accent-wash: #49342e;
+  --cell-empty: #3a2d29;
+  --block-1: #e99576;
+  --block-2: #d5b66e;
+  --block-3: #8fae9a;
+  --shadow: 0 20px 50px rgb(0 0 0 / 32%);
+}
+
+:root[data-theme="twilight"] {
+  color-scheme: dark;
+  --page-bg: #211d2b;
+  --surface: #2b2637;
+  --surface-soft: #342e41;
+  --ink: #f0edf4;
+  --muted: #b0a8b9;
+  --line: #454052;
+  --accent: #b59bdb;
+  --accent-deep: #504568;
+  --accent-wash: #403751;
+  --cell-empty: #373145;
+  --block-1: #b59bdb;
+  --block-2: #e8b27d;
+  --block-3: #74c6ad;
+  --shadow: 0 20px 50px rgb(0 0 0 / 32%);
+}
+
+:root[data-theme="garden-night"] {
+  color-scheme: dark;
+  --page-bg: #18231e;
+  --surface: #24312a;
+  --surface-soft: #2d3b33;
+  --ink: #edf1e9;
+  --muted: #a7b2a6;
+  --line: #3c4c40;
+  --accent: #a1cf82;
+  --accent-deep: #405d3e;
+  --accent-wash: #344633;
+  --cell-empty: #303d34;
+  --block-1: #a1cf82;
+  --block-2: #e3c36f;
+  --block-3: #73b9b0;
+  --shadow: 0 20px 50px rgb(0 0 0 / 30%);
 }
 
 * {
@@ -195,6 +302,37 @@ a:focus-visible {
 
 .brand-name span {
   color: var(--accent);
+}
+
+.appearance-switch {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid color-mix(in srgb, var(--ink) 9%, transparent);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--surface) 68%, transparent);
+  transition: background-color 420ms ease, border-color 420ms ease;
+}
+
+.appearance-switch button {
+  min-height: 31px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 5px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 650;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 220ms ease, color 220ms ease, box-shadow 220ms ease;
+}
+
+.appearance-switch button[aria-pressed="true"] {
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: 0 1px 4px rgb(20 30 25 / 10%);
 }
 
 .theme-status {
@@ -608,12 +746,35 @@ h1 span {
   }
 
   .topbar {
-    min-height: 72px;
-    gap: 14px;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "brand action"
+      "appearance theme";
+    column-gap: 10px;
+    row-gap: 12px;
+    padding: 14px 0;
+  }
+
+  .brand {
+    grid-area: brand;
+  }
+
+  .appearance-switch {
+    grid-area: appearance;
+    width: max-content;
+  }
+
+  .new-game-button#new-game {
+    grid-area: action;
+    justify-self: end;
   }
 
   .theme-status {
-    margin-left: auto;
+    grid-area: theme;
+    justify-self: end;
+    margin-left: 0;
   }
 
   .theme-caption {
@@ -675,6 +836,12 @@ h1 span {
 
   .topbar {
     gap: 9px;
+  }
+
+  .appearance-switch button {
+    min-height: 29px;
+    padding: 0 8px;
+    font-size: 10px;
   }
 
   .brand {
